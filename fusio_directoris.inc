@@ -3,7 +3,7 @@
         $arrayOfDirs = scandir($dir);
 
         foreach ($arrayOfDirs as $possibleDir) {
-            if (is_dir(DIRECTORI_BASE."/".$possibleDir)) {
+            if (is_dir($dir."/".$possibleDir)) {
                 echo basename($possibleDir). '<br>';
             }
         }
@@ -12,11 +12,16 @@
     function llistat_fitxers($dir) {
         $arrayOfFiles = scandir($dir);
 
+        $arrayReturned = array();
+
         foreach ($arrayOfFiles as $possibleFile) {
-            if (is_file(DIRECTORI_BASE."/".$possibleFile)) {
+            if (is_file($dir."/".$possibleFile)) {
                 echo $possibleFile. '<br>';
+                array_push($arrayReturned, $possibleFile);
             }
         }
+
+        return $arrayReturned;
     }
 
     function conte_fitxer($fitxer, $dir) {
@@ -34,11 +39,13 @@
         $arrayForRemoving = scandir($dir);
 
         foreach ($arrayForRemoving as $itemToRemove) {
-            unlink($itemToRemove);
+            if (is_file($dir."/".$itemToRemove)) {
+                unlink($dir."/".$itemToRemove);
+            }
         }
 
         if (rmdir($dir)) {
-            echo 'Directori esborrat correctament';
+            echo 'Directori esborrat correctament'. '<br>';
         }
     }
 ?>
