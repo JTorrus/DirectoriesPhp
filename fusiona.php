@@ -24,7 +24,7 @@ function mergeDirs()
 
             $concatSecondDir = $_POST["dir2"];
 
-            if ($inputMergedDir) {
+            if (mkdir($inputMergedDir)) {
                 foreach ($filesFirstDir as $item) {
                     $source = $firstDir . "/" . $item;
                     $dest = $inputMergedDir . "/" . $item;
