@@ -1,3 +1,3 @@
 <?php
-define ("DIRECTORI_BASE", realpath("dd"));
+define("DIRECTORI_BASE", realpath("dd"));
 ?>
