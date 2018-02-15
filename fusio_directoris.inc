@@ -3,8 +3,8 @@
         $arrayOfDirs = scandir($dir);
 
         foreach ($arrayOfDirs as $possibleDir) {
-            if (is_dir($possibleDir)) {
-                echo $possibleDir. '<br>';
+            if (is_dir(DIRECTORI_BASE."/".$possibleDir)) {
+                echo basename($possibleDir). '<br>';
             }
         }
     }
@@ -13,7 +13,7 @@
         $arrayOfFiles = scandir($dir);
 
         foreach ($arrayOfFiles as $possibleFile) {
-            if (is_file($possibleFile)) {
+            if (is_file(DIRECTORI_BASE."/".$possibleFile)) {
                 echo $possibleFile. '<br>';
             }
         }

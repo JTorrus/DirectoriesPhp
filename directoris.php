@@ -5,8 +5,9 @@
 	<body>
 		<?php	
 		include ("fusio_directoris.inc");
-		
-		llistat_directoris(DIRECTORI_BASE);		
+		include ("constants.inc");
+
+		llistat_directoris(DIRECTORI_BASE);
 		?>
 		<br>
 		<div>Escriviu el nom dels dos directoris a fusionar</div>
